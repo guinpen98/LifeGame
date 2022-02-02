@@ -15,7 +15,7 @@ constexpr int window_square_h = window_h / square_size;
 class LifeGame
 {
 	private:
-		std::array < std::array< std::shared_ptr<int>, window_square_w>, window_square_h> field;
+		std::array < std::array<int, window_square_w>, window_square_h> field;
 		LifeGame() {
 			using namespace std;
 			random_device rd;
@@ -23,8 +23,7 @@ class LifeGame
 			bernoulli_distribution uid(0.3 );
 			for (int y = 0; y < window_square_h; y++)
 				for (int x = 0; x < window_square_w; x++) {
-					field[y][x].reset(new int);
-					*field[y][x] = uid(eng) ? 1 : 0;
+					field[y][x] = uid(eng) ? 1 : 0;
 				}
 		}
 	public:
