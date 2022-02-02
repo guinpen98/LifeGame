@@ -5,7 +5,7 @@ bool Update() { return (DxLib::ScreenFlip() != -1 && DxLib::ClearDrawScreen() !=
 void Main() {
 	LifeGame life_game;
 	while (Update()) {
-		for (int i = 0; i < 5000; i++) {
+		for (int i = 0; i < 3000; i++) {
 			life_game.draw();
 		}
 		life_game.evolution();
