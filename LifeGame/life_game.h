@@ -16,19 +16,20 @@ class LifeGame
 {
 	private:
 		std::array < std::array<int, window_square_w>, window_square_h> field;
+		int check(const int y, const int x);
+	public:
 		LifeGame() {
 			using namespace std;
 			random_device rd;
 			mt19937 eng(rd());
-			bernoulli_distribution uid(0.3 );
+			bernoulli_distribution uid(0.15);
 			for (int y = 0; y < window_square_h; y++)
 				for (int x = 0; x < window_square_w; x++) {
 					field[y][x] = uid(eng) ? 1 : 0;
 				}
 		}
-	public:
-		int check(const int y,const int x);
 		void evolution();
+		void draw();
 };
 
 
